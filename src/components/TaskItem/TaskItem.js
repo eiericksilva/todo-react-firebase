@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerTaskItem = styled.div`
-  max-width: 80%;
+  max-width: 100%;
   margin: 20px auto;
   height: 50px;
   background-color: #fff;
@@ -17,7 +17,7 @@ export const ButtonGroup = styled.div`
   display: flex;
 `;
 
-export const TitleTaskItem = styled.h1`
-  font-size: 18px;
+export const TitleTaskItem = styled.p`
+  font-size: 12px;
 `;
 export const InputCheckTaskItem = styled.input``;
