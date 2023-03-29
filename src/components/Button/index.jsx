@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { StyledButton } from "./Button";
 
-const Button = ({ title, type, onClick }) => {
+const Button = ({ titleButton, type, onClick }) => {
   return (
     <StyledButton type={type} onClick={onClick}>
-      {title}
+      {titleButton}
     </StyledButton>
   );
 };

@@ -7,16 +7,22 @@ import TaskItem from "./components/TaskItem";
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const handleTodos = (todo) => {
+  const addTaskItem = (todo) => {
     setTodos([...todos, todo]);
   };
+
+  const deleteTaskItem = (id) => {
+    const filteredTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(filteredTodos);
+  };
+
   return (
     <div>
       <Header />
-      <NewTask handleTodos={handleTodos} />
+      <NewTask addTaskItem={addTaskItem} />
       <div className="WrapperTasks">
         {todos.map((todo) => (
-          <TaskItem key={todo.id} title={todo.taskName} />
+          <TaskItem deleteTaskItem={deleteTaskItem} key={todo.id} todo={todo} />
         ))}
       </div>
     </div>

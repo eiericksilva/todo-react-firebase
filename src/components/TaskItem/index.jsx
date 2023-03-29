@@ -9,14 +9,18 @@ import {
 
 import Button from "../Button";
 
-const TaskItem = ({ title }) => {
+const TaskItem = ({ todo, deleteTaskItem }) => {
   return (
     <ContainerTaskItem>
       <InputCheckTaskItem type="checkbox" />
-      <TitleTaskItem>{title}</TitleTaskItem>
+      <TitleTaskItem>{todo.taskName}</TitleTaskItem>
       <ButtonGroup>
-        <Button title="Edit Task" type="upd" />
-        <Button title="Delete Task" type="del" />
+        <Button titleButton="Edit Task" type="upd" />
+        <Button
+          titleButton="Delete Task"
+          type="del"
+          onClick={() => deleteTaskItem(todo.id)}
+        />
       </ButtonGroup>
     </ContainerTaskItem>
   );

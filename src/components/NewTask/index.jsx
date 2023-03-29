@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { Container, TextField } from "./NewTask";
 import Button from "../Button";
 
-const NewTask = ({ handleTodos }) => {
+const NewTask = ({ addTaskItem }) => {
   const [taskName, setTaskName] = useState("");
   const [id, setId] = useState(0);
 
   const createObjectTodo = (taskName) => {
     const objectTodo = { taskName, id };
     setId((prev) => prev + 1);
-    handleTodos(objectTodo);
+    addTaskItem(objectTodo);
+    setTaskName("");
   };
   return (
     <Container>
@@ -21,7 +22,7 @@ const NewTask = ({ handleTodos }) => {
       />
       <Button
         type="add"
-        title="Add Task"
+        titleButton="Add Task"
         onClick={() => createObjectTodo(taskName)}
       />
     </Container>
