@@ -9,17 +9,35 @@ const addButton = css`
   background: #4caf50;
   color: #fff;
   border-color: #4caf50;
+
+  &:hover {
+    background: #fff;
+    color: #4caf50;
+    border-color: #4caf50;
+  }
 `;
 const delButton = css`
   background: #f44336;
   color: #fff;
   border-color: #f44336;
+
+  &:hover {
+    background: #fff;
+    color: #f44336;
+    border-color: #f44336;
+  }
 `;
 
 const updButton = css`
   background: #2196f3;
   color: #fff;
   border-color: #2196f3;
+
+  &:hover {
+    background: #fff;
+    color: #2196f3;
+    border-color: #2196f3;
+  }
 `;
 
 export const StyledButton = styled.button`
