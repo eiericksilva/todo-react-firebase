@@ -17,7 +17,7 @@ export const ButtonGroup = styled.div`
   display: flex;
 `;
 
-export const TitleTaskItem = styled.p`
+export const TitleTaskItem = styled.h1`
   font-size: 12px;
 `;
 export const InputCheckTaskItem = styled.input``;

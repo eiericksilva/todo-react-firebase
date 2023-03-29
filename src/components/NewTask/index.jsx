@@ -8,6 +8,7 @@ const NewTask = ({ addTaskItem }) => {
 
   const createObjectTodo = (taskName) => {
     const objectTodo = { taskName, id };
+    if (taskName === "") return;
     setId((prev) => prev + 1);
     addTaskItem(objectTodo);
     setTaskName("");
