@@ -1,3 +1,4 @@
+import "./App.css";
 import { useState } from "react";
 import Header from "./components/Header";
 import NewTask from "./components/NewTask";
@@ -8,9 +9,9 @@ function App() {
     <div>
       <Header />
       <NewTask />
-      <TaskItem title="Task One" />
-      <TaskItem title="Task Two" />
-      <TaskItem title="Task Three" />
+      <div className="WrapperTasks">
+        <TaskItem title="Task One" />
+      </div>
     </div>
   );
 }
