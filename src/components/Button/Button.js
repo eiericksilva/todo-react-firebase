@@ -1,9 +1,15 @@
 import styled, { css } from "styled-components";
 
 const defaultButton = css`
-  background: transparent;
+  background: white;
   color: #000;
   border-color: #fff;
+
+  &:hover {
+    background: #f2f2f2;
+    color: #282a3a;
+    border-color: #4caf50;
+  }
 `;
 const addButton = css`
   background: #4caf50;
@@ -50,8 +56,8 @@ export const StyledButton = styled.button`
   transition: all 0.1s ease;
   margin: 0 10px;
 
-  ${({ type }) => {
-    switch (type) {
+  ${({ variant }) => {
+    switch (variant) {
       case "add":
         return addButton;
         break;

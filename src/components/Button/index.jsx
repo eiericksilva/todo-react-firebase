@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { StyledButton } from "./Button";
 
-const Button = ({ titleButton, type, onClick }) => {
+const Button = ({ titleButton, variant, onClick }) => {
   return (
-    <StyledButton type={type} onClick={onClick}>
+    <StyledButton variant={variant} onClick={onClick}>
       {titleButton}
     </StyledButton>
   );

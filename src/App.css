@@ -4,3 +4,8 @@
     min-height: 90px;
     height: auto;
 }
+
+.completed {
+    color: #735F32 ;
+    text-decoration: line-through;
+  }

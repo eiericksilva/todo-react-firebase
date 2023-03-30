@@ -1,37 +1,29 @@
 import React, { useState } from "react";
 
-import {
-  ButtonGroup,
-  ContainerTaskItem,
-  InputCheckTaskItem,
-  TitleTaskItem,
-} from "./TaskItem";
+import { ButtonGroup, ContainerTaskItem, TitleTaskItem } from "./TaskItem";
 
 import Button from "../Button";
-import TaskItemUpdateDialog from "../TaskItemUpdateDialog";
 
-const TaskItem = ({ todo, deleteTaskItem }) => {
-  const [openDialog, setOpenDialog] = useState(false);
-  const handleDialog = () => {
-    setOpenDialog(!openDialog);
-  };
-
+const TaskItem = ({ task, deleteTaskItem, updateTaskItem, toggleComplete }) => {
   return (
     <div>
-      <TaskItemUpdateDialog
-        todo={todo}
-        open={openDialog}
-        handleDialog={handleDialog}
-      />
       <ContainerTaskItem>
-        <InputCheckTaskItem type="checkbox" />
-        <TitleTaskItem>{todo.taskName}</TitleTaskItem>
+        <TitleTaskItem
+          className={`${task.completed ? "completed" : ""}`}
+          onClick={() => toggleComplete(task.id)}
+        >
+          {task.task}
+        </TitleTaskItem>
         <ButtonGroup>
-          <Button titleButton="Edit Task" type="upd" onClick={handleDialog} />
+          <Button
+            titleButton="Edit Task"
+            variant="upd"
+            onClick={() => updateTaskItem(task.id)}
+          />
           <Button
             titleButton="Delete Task"
-            type="del"
-            onClick={() => deleteTaskItem(todo.id)}
+            variant="del"
+            onClick={() => deleteTaskItem(task.id)}
           />
         </ButtonGroup>
       </ContainerTaskItem>

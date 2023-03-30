@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ContainerTaskItem = styled.div`
   max-width: 100%;
@@ -9,7 +9,6 @@ export const ContainerTaskItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 10px;
   padding: 10px;
 `;
 
@@ -20,4 +19,3 @@ export const ButtonGroup = styled.div`
 export const TitleTaskItem = styled.h1`
   font-size: 12px;
 `;
-export const InputCheckTaskItem = styled.input``;

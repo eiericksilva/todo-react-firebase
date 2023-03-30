@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Container, TextField } from "./NewTask";
+import { Container, TextField } from "./UpdateTask";
 import Button from "../Button";
 
-const NewTask = ({ addTaskItem }) => {
-  const [value, setValue] = useState("");
+const UpdateTask = ({ updateTaskItem, task }) => {
+  const [value, setValue] = useState(task.task);
 
   const makeTaskItemObject = (e) => {
     e.preventDefault();
     if (value === "") return;
-    addTaskItem(value);
+
+    updateTaskItem(value, task.id);
 
     setValue("");
   };
@@ -16,13 +17,13 @@ const NewTask = ({ addTaskItem }) => {
     <Container onSubmit={makeTaskItemObject}>
       <TextField
         type="text"
-        placeholder="Input your task here"
+        placeholder="Update task"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <Button variant="add" titleButton="Add Task" type="submit" />
+      <Button titleButton="Save" type="submit" />
     </Container>
   );
 };
 
-export default NewTask;
+export default UpdateTask;
