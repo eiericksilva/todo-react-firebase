@@ -5,7 +5,7 @@
     height: auto;
 }
 
-.completed {
+.isCompleted {
     color: #735F32 ;
     text-decoration: line-through;
   }

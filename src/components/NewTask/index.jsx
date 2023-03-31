@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Container, TextField } from "./NewTask";
 import Button from "../Button";
 
-const NewTask = ({ addTaskItem }) => {
+const NewTask = ({ addTodo }) => {
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (value === "") return;
-    addTaskItem(value);
+    addTodo(value);
 
     setValue("");
   };
