@@ -5,7 +5,7 @@ import Button from "../Button";
 const UpdateTask = ({ updateTaskItem, task }) => {
   const [value, setValue] = useState(task.task);
 
-  const makeTaskItemObject = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (value === "") return;
 
@@ -14,7 +14,7 @@ const UpdateTask = ({ updateTaskItem, task }) => {
     setValue("");
   };
   return (
-    <Container onSubmit={makeTaskItemObject}>
+    <Container onSubmit={handleSubmit}>
       <TextField
         type="text"
         placeholder="Update task"

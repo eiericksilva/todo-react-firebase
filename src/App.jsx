@@ -21,12 +21,15 @@ function App() {
   };
 
   const deleteTaskItem = (id) => {
+    //filteredTodos conterá todos os todos exceto o que será clicado
     const filteredTodos = todos.filter((todo) => todo.id !== id);
+
     setTodos(filteredTodos);
   };
 
   const updateTaskItem = (id) => {
     const filteredTodos = todos.map((todo) =>
+      //conceito de imutabilidade: mantem todas as propriedades do objeto e altera só o necessário
       todo.id === id ? { ...todo, isUpdating: !todo.isUpdating } : todo
     );
     setTodos(filteredTodos);

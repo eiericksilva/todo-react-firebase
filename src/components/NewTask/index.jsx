@@ -5,7 +5,7 @@ import Button from "../Button";
 const NewTask = ({ addTaskItem }) => {
   const [value, setValue] = useState("");
 
-  const makeTaskItemObject = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (value === "") return;
     addTaskItem(value);
@@ -13,7 +13,7 @@ const NewTask = ({ addTaskItem }) => {
     setValue("");
   };
   return (
-    <Container onSubmit={makeTaskItemObject}>
+    <Container onSubmit={handleSubmit}>
       <TextField
         type="text"
         placeholder="Input your task here"
