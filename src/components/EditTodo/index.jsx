@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import { Container, TextField } from "./UpdateTask";
+import { Container, TextField } from "./EditTodo";
 import Button from "../Button";
 
-const UpdateTask = ({ updateTodo, todo }) => {
-  const [value, setValue] = useState(todo.todo);
+const EditTodo = ({ todo }) => {
+  const [value, setValue] = useState(todo.text);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (value === "") return;
-
-    updateTodo(value, todo.id);
-
-    setValue("");
+    console.log("oi");
   };
   return (
     <Container onSubmit={handleSubmit}>
@@ -26,4 +22,4 @@ const UpdateTask = ({ updateTodo, todo }) => {
   );
 };
 
-export default UpdateTask;
+export default EditTodo;

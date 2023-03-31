@@ -4,22 +4,18 @@ import { ButtonGroup, ContainerTodo, TitleTodo } from "./Todo";
 
 import Button from "../Button";
 
-const Todo = ({ todo, deleteTodo, updateTodo, toggleComplete }) => {
+const Todo = ({ todo, deleteTodo, toggleIsCompleted }) => {
   return (
     <div>
       <ContainerTodo>
         <TitleTodo
           className={`${todo.isCompleted ? "isCompleted" : ""}`}
-          onClick={() => toggleComplete(todo.id)}
+          onClick={() => toggleIsCompleted(todo)}
         >
           {todo.text}
         </TitleTodo>
         <ButtonGroup>
-          <Button
-            titleButton="Edit Task"
-            variant="upd"
-            onClick={() => updateTodo(todo.id)}
-          />
+          <Button titleButton="Edit Task" variant="upd" />
           <Button
             titleButton="Delete Task"
             variant="del"

@@ -8,4 +8,10 @@
 .isCompleted {
     color: #735F32 ;
     text-decoration: line-through;
-  }
+}
+
+.footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+

@@ -4,22 +4,20 @@ import Header from "./components/Header";
 import NewTask from "./components/NewTask";
 import Todo from "./components/Todo";
 import { v4 as uuidv4 } from "uuid";
-import UpdateTask from "./components/UpdateTask";
-import { collection, onSnapshot, query } from "firebase/firestore";
+import EditTodo from "./components/EditTodo";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  query,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "./firebase";
 
-function App() {
+function App({ createTodo }) {
   const [todos, setTodos] = useState([]);
 
-  //create todo
-  const addTodo = (todo) => {
-    setTodos([
-      ...todos,
-      { id: uuidv4(), isUpdating: false, isCompleted: false, todo: todo },
-    ]);
-  };
-
-  //Read todo from Firebase
   useEffect(() => {
     const q = query(collection(db, "todos"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -31,57 +29,39 @@ function App() {
     });
   }, []);
 
-  //Update
-  const updateTodo = (id) => {
-    const filteredTodos = todos.map((todo) =>
-      //conceito de imutabilidade: mantem todas as propriedades do objeto e altera só o necessário
-      todo.id === id ? { ...todo, isUpdating: !todo.isUpdating } : todo
-    );
-    setTodos(filteredTodos);
+  const deleteTodo = async (id) => {
+    await deleteDoc(doc(db, "todos", id));
   };
 
-  const editTask = (todo, id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, todo, isUpdating: !todo.isUpdating } : todo
-      )
-    );
+  const toggleIsCompleted = async (todo) => {
+    await updateDoc(doc(db, "todos", todo.id), {
+      isCompleted: !todo.isCompleted,
+    });
   };
 
-  //Delete todo from Firebase
-  const deleteTodo = (id) => {
-    //filteredTodos conterá todos os todos exceto o que será clicado
-    const filteredTodos = todos.filter((todo) => todo.id !== id);
+  /* update todo */
 
-    setTodos(filteredTodos);
-  };
-
-  /* Sei lá */
-  const toggleComplete = (id) => {
-    const filteredTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
-    );
-    setTodos(filteredTodos);
-  };
   return (
     <div>
       <Header />
-      <NewTask addTodo={addTodo} />
+      <NewTask createTodo={createTodo} />
       <div className="WrapperTasks">
         {todos.map((todo) =>
           todo.isUpdating ? (
-            <UpdateTask key={todo.id} updateTodo={editTask} todo={todo} />
+            <EditTodo key={todo.id} todo={todo} />
           ) : (
             <Todo
-              deleteTodo={deleteTodo}
-              updateTodo={updateTodo}
               key={uuidv4()}
               todo={todo}
-              toggleComplete={toggleComplete}
+              toggleIsCompleted={toggleIsCompleted}
+              deleteTodo={deleteTodo}
             />
           )
         )}
       </div>
+      {todos.length < 1 ? null : (
+        <div className="footer">{`You have ${todos.length} todos`}</div>
+      )}
     </div>
   );
 }
