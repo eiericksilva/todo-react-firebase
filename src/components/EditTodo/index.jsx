@@ -1,23 +1,30 @@
 import React, { useState } from "react";
 import { Container, TextField } from "./EditTodo";
 import Button from "../Button";
+import { db } from "../../firebase";
+import { updateDoc, collection, doc } from "firebase/firestore";
 
-const EditTodo = ({ todo, toggleIsUpdating }) => {
-  const [value, setValue] = useState(todo.text);
+const EditTodo = ({ todo }) => {
+  const [editValue, setEditValue] = useState(todo.text);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("oi");
 
-    toggleIsUpdating(todo);
+    /* atualizar o text do todo específico */
+    if (editValue === "") return;
+
+    await updateDoc(doc(db, "todos", todo.id), {
+      text: editValue,
+      isUpdating: !todo.isUpdating,
+    });
   };
   return (
     <Container onSubmit={handleSubmit}>
       <TextField
         type="text"
         placeholder="Update task"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={editValue}
+        onChange={(e) => setEditValue(e.target.value)}
       />
       <Button titleButton="Save" type="submit" />
     </Container>
