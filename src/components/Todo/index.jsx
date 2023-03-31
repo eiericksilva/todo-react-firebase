@@ -4,7 +4,7 @@ import { ButtonGroup, ContainerTodo, TitleTodo } from "./Todo";
 
 import Button from "../Button";
 
-const Todo = ({ todo, deleteTodo, toggleIsCompleted }) => {
+const Todo = ({ todo, deleteTodo, toggleIsCompleted, toggleIsUpdating }) => {
   return (
     <div>
       <ContainerTodo>
@@ -15,7 +15,11 @@ const Todo = ({ todo, deleteTodo, toggleIsCompleted }) => {
           {todo.text}
         </TitleTodo>
         <ButtonGroup>
-          <Button titleButton="Edit Task" variant="upd" />
+          <Button
+            titleButton="Edit Task"
+            variant="upd"
+            onClick={() => toggleIsUpdating(todo)}
+          />
           <Button
             titleButton="Delete Task"
             variant="del"

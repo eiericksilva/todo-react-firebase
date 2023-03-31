@@ -41,6 +41,12 @@ function App({ createTodo }) {
 
   /* update todo */
 
+  const toggleIsUpdating = async (todo) => {
+    await updateDoc(doc(db, "todos", todo.id), {
+      isUpdating: !todo.isUpdating,
+    });
+  };
+
   return (
     <div>
       <Header />
@@ -48,12 +54,17 @@ function App({ createTodo }) {
       <div className="WrapperTasks">
         {todos.map((todo) =>
           todo.isUpdating ? (
-            <EditTodo key={todo.id} todo={todo} />
+            <EditTodo
+              key={todo.id}
+              todo={todo}
+              toggleIsUpdating={toggleIsUpdating}
+            />
           ) : (
             <Todo
               key={uuidv4()}
               todo={todo}
               toggleIsCompleted={toggleIsCompleted}
+              toggleIsUpdating={toggleIsUpdating}
               deleteTodo={deleteTodo}
             />
           )
