@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 import { ButtonGroup, ContainerTodo, TitleTodo } from "./Todo";
+import { FiEdit } from "react-icons/fi";
+import { VscTrash } from "react-icons/vsc";
 
 import Button from "../Button";
 
@@ -15,11 +17,13 @@ const Todo = ({ todo, deleteTodo, toggleIsCompleted, toggleIsUpdating }) => {
           {todo.text}
         </TitleTodo>
         <ButtonGroup>
+          <FiEdit size={25} onClick={() => toggleIsUpdating(todo)} />
           <Button
             titleButton="Edit Task"
             variant="upd"
             onClick={() => toggleIsUpdating(todo)}
           />
+          <VscTrash size={25} onClick={() => deleteTodo(todo.id)} />
           <Button
             titleButton="Delete Task"
             variant="del"

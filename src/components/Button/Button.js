@@ -56,6 +56,10 @@ export const StyledButton = styled.button`
   transition: all 0.1s ease;
   margin: 0 10px;
 
+  @media (max-width: 768px) {
+    display: none;
+  }
+
   ${({ variant }) => {
     switch (variant) {
       case "add":

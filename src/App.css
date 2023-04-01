@@ -1,9 +1,4 @@
-.WrapperTasks {
-    width: 80%;
-    margin: 0 auto;
-    min-height: 90px;
-    height: auto;
-}
+
 
 .isCompleted {
     color: #735F32 ;
@@ -14,4 +9,3 @@
     text-align: center;
     margin-bottom: 20px;
 }
-

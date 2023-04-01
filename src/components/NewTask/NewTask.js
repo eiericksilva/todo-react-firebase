@@ -9,6 +9,10 @@ export const Container = styled.form`
   justify-content: center;
   margin-bottom: 20px;
   background-color: #c69749;
+
+  @media (max-width: 750px) {
+    width: 100%;
+  }
 `;
 
 export const TextField = styled.input`

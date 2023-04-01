@@ -14,6 +14,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db } from "./firebase";
+import { WrapperTasks } from "./components/Todo/Todo";
 
 function App({ createTodo }) {
   const [todos, setTodos] = useState([]);
@@ -51,7 +52,7 @@ function App({ createTodo }) {
     <div>
       <Header />
       <NewTask createTodo={createTodo} />
-      <div className="WrapperTasks">
+      <WrapperTasks>
         {todos.map((todo) =>
           todo.isUpdating ? (
             <EditTodo
@@ -69,7 +70,7 @@ function App({ createTodo }) {
             />
           )
         )}
-      </div>
+      </WrapperTasks>
       {todos.length < 1 ? null : (
         <div className="footer">{`You have ${todos.length} todos`}</div>
       )}

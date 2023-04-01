@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, TextField } from "./EditTodo";
 import Button from "../Button";
 import { db } from "../../firebase";
-import { updateDoc, collection, doc } from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
 
 const EditTodo = ({ todo }) => {
   const [editValue, setEditValue] = useState(todo.text);
@@ -10,7 +10,6 @@ const EditTodo = ({ todo }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    /* atualizar o text do todo específico */
     if (editValue === "") return;
 
     await updateDoc(doc(db, "todos", todo.id), {
