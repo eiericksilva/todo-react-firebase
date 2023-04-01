@@ -3,6 +3,7 @@ import { Container, TextField } from "./EditTodo";
 import Button from "../Button";
 import { db } from "../../firebase";
 import { updateDoc, doc } from "firebase/firestore";
+import { VscSaveAs } from "react-icons/vsc";
 
 const EditTodo = ({ todo }) => {
   const [editValue, setEditValue] = useState(todo.text);
@@ -25,6 +26,7 @@ const EditTodo = ({ todo }) => {
         value={editValue}
         onChange={(e) => setEditValue(e.target.value)}
       />
+      <VscSaveAs onClick={handleSubmit} size={25} />
       <Button titleButton="Save" type="submit" />
     </Container>
   );

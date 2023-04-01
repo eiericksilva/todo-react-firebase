@@ -20,8 +20,8 @@ export const WrapperTasks = styled.div`
   min-height: 90px;
   height: auto;
 
-  @media (max-width: 750px) {
-    width: 100%;
+  @media (max-width: 768px) {
+    width: 97%;
   }
 `;
 
@@ -35,12 +35,12 @@ export const ButtonGroup = styled.div`
   svg {
     color: #735f32;
     cursor: pointer;
-
+    display: none
     &:hover {
       color: #c69749;
     }
 
-    @media (min-width: 768px) {
+     @media (min-width: 769px) {
       display: none;
     }
   }

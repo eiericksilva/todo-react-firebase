@@ -3,6 +3,7 @@ import { Container, TextField } from "./NewTask";
 import Button from "../Button";
 import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { AiFillPlusSquare } from "react-icons/ai";
 
 const NewTask = () => {
   const [value, setValue] = useState("");
@@ -28,6 +29,7 @@ const NewTask = () => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
+      <AiFillPlusSquare onClick={createTodo} size={30} />
       <Button variant="add" titleButton="Add Task" type="submit" />
     </Container>
   );
