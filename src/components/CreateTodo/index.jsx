@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Container, TextField } from "./NewTask";
+import { Container, TextField } from "./CreateTodo";
 import Button from "../Button";
 import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { AiFillPlusSquare } from "react-icons/ai";
 
-const NewTask = () => {
+const CreateTodo = () => {
   const [value, setValue] = useState("");
 
   const createTodo = async (e) => {
@@ -35,4 +35,4 @@ const NewTask = () => {
   );
 };
 
-export default NewTask;
+export default CreateTodo;

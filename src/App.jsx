@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
-import NewTask from "./components/NewTask";
+import CreateTodo from "./components/CreateTodo";
 import Todo from "./components/Todo";
 import { v4 as uuidv4 } from "uuid";
 import EditTodo from "./components/EditTodo";
@@ -51,7 +51,7 @@ function App({ createTodo }) {
   return (
     <div>
       <Header />
-      <NewTask createTodo={createTodo} />
+      <CreateTodo createTodo={createTodo} />
       <WrapperTasks>
         {todos.map((todo) =>
           todo.isUpdating ? (
