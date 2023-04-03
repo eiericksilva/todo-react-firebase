@@ -11,6 +11,7 @@ import {
   doc,
   onSnapshot,
   query,
+  orderBy,
   updateDoc,
 } from "firebase/firestore";
 import { db } from "./firebase";
@@ -20,7 +21,7 @@ function App({ createTodo }) {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    const q = query(collection(db, "todos"));
+    const q = query(collection(db, "todos"), orderBy("createdAt", "asc"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let todosArr = [];
       querySnapshot.forEach((doc) => {

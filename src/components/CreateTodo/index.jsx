@@ -4,9 +4,11 @@ import Button from "../Button";
 import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { AiFillPlusSquare } from "react-icons/ai";
+import moment from "moment/moment";
 
 const CreateTodo = () => {
   const [value, setValue] = useState("");
+  const date = moment().format();
 
   const createTodo = async (e) => {
     e.preventDefault();
@@ -17,6 +19,7 @@ const CreateTodo = () => {
       text: value,
       isCompleted: false,
       isUpdating: false,
+      createdAt: date,
     });
     setValue("");
   };
