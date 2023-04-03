@@ -9,9 +9,11 @@ import Button from "../Button";
 const Todo = ({ todo, deleteTodo, toggleIsCompleted, toggleIsUpdating }) => {
   return (
     <div>
-      <ContainerTodo>
+      <ContainerTodo
+        className={`${todo.isCompleted ? "classTodoIsCompleted" : ""}`}
+      >
         <TitleTodo
-          className={`${todo.isCompleted ? "isCompleted" : ""}`}
+          className={`${todo.isCompleted ? "classTextIsCompleted" : ""}`}
           onClick={() => toggleIsCompleted(todo)}
         >
           {todo.text}

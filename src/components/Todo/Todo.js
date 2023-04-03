@@ -12,6 +12,11 @@ export const ContainerTodo = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+
+  &.classTodoIsCompleted {
+    background-color: #001e3c;
+    color: #fff;
+  }
 `;
 
 export const WrapperTasks = styled.div`
@@ -49,4 +54,8 @@ export const ButtonGroup = styled.div`
 export const TitleTodo = styled.h1`
   font-size: 12px;
   width: 70%;
+
+  &.classTextIsCompleted {
+    text-decoration: line-through;
+  }
 `;
