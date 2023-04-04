@@ -6,6 +6,7 @@ import {
   query,
   updateDoc,
   doc,
+  where,
 } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import React, { useState, useEffect } from "react";
@@ -22,7 +23,11 @@ const TodoApp = ({ createTodo }) => {
   const { user, logout } = UserAuth();
 
   useEffect(() => {
-    const q = query(collection(db, "todos"), orderBy("createdAt", "asc"));
+    const q = query(
+      collection(db, "todos"),
+      orderBy("createdAt", "asc"),
+      where("user_uid", "==", user.uid)
+    );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let todosArr = [];
       querySnapshot.forEach((doc) => {

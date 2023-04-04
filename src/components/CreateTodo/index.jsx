@@ -5,8 +5,10 @@ import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { AiFillPlusSquare } from "react-icons/ai";
 import moment from "moment/moment";
+import { UserAuth } from "../../context/AuthContext";
 
 const CreateTodo = () => {
+  const { user } = UserAuth();
   const [value, setValue] = useState("");
   const date = moment().format();
 
@@ -20,6 +22,7 @@ const CreateTodo = () => {
       isCompleted: false,
       isUpdating: false,
       createdAt: date,
+      user_uid: user.uid,
     });
     setValue("");
   };
