@@ -12,6 +12,7 @@ export const Title = styled.h1`
   font-size: 24px;
 `;
 
+export const UserEmail = styled.h4``;
 export const Button = styled.button`
   color: #001e3c;
   border-radius: 20px;

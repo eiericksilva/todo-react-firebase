@@ -15,9 +15,11 @@ import CreateTodo from "../../components/CreateTodo";
 import { WrapperTasks } from "../../components/Todo/Todo";
 import Todo from "../../components/Todo";
 import EditTodo from "../../components/EditTodo";
+import { UserAuth } from "../../context/AuthContext";
 
 const TodoApp = ({ createTodo }) => {
   const [todos, setTodos] = useState([]);
+  const { user, logout } = UserAuth();
 
   useEffect(() => {
     const q = query(collection(db, "todos"), orderBy("createdAt", "asc"));
@@ -48,7 +50,7 @@ const TodoApp = ({ createTodo }) => {
 
   return (
     <div>
-      <Header />
+      <Header user={user} logout={logout} />
       <CreateTodo createTodo={createTodo} />
       <WrapperTasks>
         {todos.map((todo) =>
