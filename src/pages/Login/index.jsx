@@ -7,8 +7,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Logado");
-    navigate("todoApp");
+    navigate("/todoapp");
   };
   return (
     <Container>

@@ -1,13 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Cadastro = () => {
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    navigate("/todoapp");
+  };
   return (
     <div>
       <div>
         <h2>Página de Cadastro</h2>
       </div>
       <div>
-        <form>
+        <form onClick={handleSubmit}>
           <label>
             Email:
             <input type="email" />
