@@ -88,7 +88,8 @@ export const Button = styled.button`
   border-radius: 20px;
   background-color: #001e3c;
   height: 30px;
-  width: 120px;
+  min-width: 120px;
+  padding: 0 10px;
   border-radius: 20px;
   margin-top: 20px;
 

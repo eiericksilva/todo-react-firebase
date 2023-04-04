@@ -1,5 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Button,
+  ColumnOne,
+  ColumnTwo,
+  Container,
+  ContainerInput,
+  Form,
+  Input,
+  Title,
+  Wrapper,
+} from "./Cadastro";
 
 const Cadastro = () => {
   const navigate = useNavigate();
@@ -9,28 +20,30 @@ const Cadastro = () => {
     navigate("/todoapp");
   };
   return (
-    <div>
-      <div>
-        <h2>Página de Cadastro</h2>
-      </div>
-      <div>
-        <form onClick={handleSubmit}>
-          <label>
-            Email:
-            <input type="email" />
-          </label>
-          <label>
-            Senha:
-            <input type="password" />
-          </label>
-          <label>
-            Confirme sua senha:
-            <input type="password" />
-          </label>
-          <button type="submit"> Entrar</button>
-        </form>
-      </div>
-    </div>
+    <Wrapper>
+      <Container>
+        <ColumnOne>
+          <Title>Cadastre-se no App!</Title>
+          <p>Cadastre para criar seu Todo List</p>
+          <hr />
+          <p>Já tem cadastro?</p>
+          <Button>
+            <Link to="/">Faça Login!</Link>
+          </Button>
+        </ColumnOne>
+        <ColumnTwo>
+          <Form onSubmit={handleSubmit}>
+            <Title>Cadastre-se!</Title>
+            <ContainerInput>
+              <Input type="email" placeholder="E-mail" />
+              <Input type="password" placeholder="Senha" />
+              <Input type="password" placeholder="Confirme sua Senha" />
+            </ContainerInput>
+            <Button type="submit"> Confirmar Cadastro</Button>
+          </Form>
+        </ColumnTwo>
+      </Container>
+    </Wrapper>
   );
 };
 
