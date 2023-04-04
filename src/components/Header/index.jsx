@@ -1,10 +1,11 @@
 import React from "react";
-import { Container, Title } from "./Header";
+import { Button, Container, Title } from "./Header";
 
 const Header = () => {
   return (
     <Container>
       <Title>Todo ReactJS + Firebase</Title>
+      <Button>Sair</Button>
     </Container>
   );
 };
