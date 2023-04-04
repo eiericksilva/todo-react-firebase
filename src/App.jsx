@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import TodoApp from "./pages/TodoApp";
 import { AuthContextProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
@@ -13,7 +14,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/todoapp" element={<TodoApp />} />
+          <Route
+            path="/todoapp"
+            element={
+              <ProtectedRoute>
+                <TodoApp />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </AuthContextProvider>
     </div>
