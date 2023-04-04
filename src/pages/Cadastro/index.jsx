@@ -1,5 +1,6 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { UserAuth } from "../../context/AuthContext";
 import {
   Button,
   ColumnOne,
@@ -13,11 +14,22 @@ import {
 } from "./Cadastro";
 
 const Cadastro = () => {
-  const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const { createUser } = UserAuth();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    navigate("/todoapp");
+    setError("");
+    try {
+      await createUser(email, password);
+    } catch (e) {
+      setError(e.message);
+      console.log("erro", e.message);
+    }
   };
   return (
     <Wrapper>
@@ -35,9 +47,19 @@ const Cadastro = () => {
           <Form onSubmit={handleSubmit}>
             <Title>Cadastre-se!</Title>
             <ContainerInput>
-              <Input type="email" placeholder="E-mail" />
-              <Input type="password" placeholder="Senha" />
-              <Input type="password" placeholder="Confirme sua Senha" />
+              <Input
+                type="email"
+                placeholder="E-mail"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+              <Input
+                type="password"
+                placeholder="Senha"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
+              {/*  <Input type="password" placeholder="Confirme sua Senha" /> */}
             </ContainerInput>
             <Button type="submit"> Confirmar Cadastro</Button>
           </Form>
