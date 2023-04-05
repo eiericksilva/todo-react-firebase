@@ -6,6 +6,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 770px) {
+    flex-direction: column;
+    gap: 5px;
+  }
 `;
 
 export const Title = styled.h1`
