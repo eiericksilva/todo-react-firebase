@@ -11,16 +11,23 @@ export const Container = styled.div`
   width: 60%;
   background-color: #fff;
   border-radius: 20px;
+  min-width: 420px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  @media (max-width: 1135px) {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+  }
 `;
 
 export const ColumnOne = styled.div`
   width: 30%;
-  min-width: 500px;
+  min-width: 420px;
   height: 100%;
   padding: 20px;
   background: linear-gradient(180deg, #000, #001e3c);
@@ -30,6 +37,11 @@ export const ColumnOne = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 1135px) {
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+  }
 
   h2 {
     color: #fff;
@@ -50,7 +62,6 @@ export const ColumnOne = styled.div`
   }
 
   button {
-    background-color: white;
     height: 30px;
     width: 120px;
     border-radius: 20px;
@@ -69,6 +80,10 @@ export const ColumnTwo = styled.div`
   flex: 1;
   height: 100%;
   padding: 20px;
+
+  @media (max-width: 420px) {
+    width: 100%;
+  }
 `;
 export const Form = styled.form`
   color: #001e3c;
@@ -77,6 +92,10 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `;
 export const ContainerInput = styled.div`
   display: flex;
