@@ -21,7 +21,7 @@ export const Container = styled.div`
   @media (max-width: 1135px) {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     width: 100%;
   }
 `;
@@ -93,7 +93,6 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
 
   @media (max-width: 450px) {
     width: 100%;

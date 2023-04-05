@@ -21,7 +21,7 @@ export const Container = styled.div`
   @media (max-width: 1135px) {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     width: 100%;
   }
 `;
