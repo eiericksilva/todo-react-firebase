@@ -12,11 +12,6 @@ export const ContainerTodo = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-
-  &.classTodoIsCompleted {
-    background-color: #001e3c;
-    color: #fff;
-  }
 `;
 
 export const WrapperTasks = styled.div`
@@ -36,23 +31,24 @@ export const ButtonGroup = styled.div`
   gap: 10px;
   min-width: 30%;
   align-items: center;
+  color: black;
 
   svg {
-    color: #735f32;
+    color: var(--quantum);
     cursor: pointer;
-    display: none
+    display: none;
     &:hover {
       color: #c69749;
     }
 
-     @media (min-width: 769px) {
-      display: none;
+    @media (max-width: 769px) {
+      display: block;
     }
   }
 `;
 
 export const TitleTodo = styled.h1`
-  font-size: 12px;
+  font-size: 15px;
   width: 70%;
 
   &.classTextIsCompleted {

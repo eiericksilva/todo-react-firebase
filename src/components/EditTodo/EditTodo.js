@@ -7,7 +7,7 @@ export const Container = styled.form`
   align-items: center;
   justify-content: space-around;
   background-color: #282a3a;
-  height: 50px;
+  min-height: 50px;
   padding: 10px;
   margin-bottom: 20px;
 

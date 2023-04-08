@@ -31,7 +31,7 @@ export const ColumnOne = styled.div`
   min-width: 420px;
   height: 100%;
   padding: 20px;
-  background: linear-gradient(180deg, #000, #001e3c);
+  background: var(--blue-magenta);
   border-radius: 20px 0 0 20px;
 
   display: flex;
@@ -50,7 +50,7 @@ export const ColumnOne = styled.div`
   }
 
   p {
-    color: #f7d399;
+    color: var(--gray);
     text-align: center;
     font-weight: 300;
   }

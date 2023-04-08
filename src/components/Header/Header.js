@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   text-align: center;
-  margin: 20px;
+  padding: 30px 10px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  background-color: var(--gray);
+  color: var(--quantum);
   @media (max-width: 770px) {
     flex-direction: column;
     gap: 5px;
@@ -17,7 +19,9 @@ export const Title = styled.h1`
   font-size: 24px;
 `;
 
-export const UserEmail = styled.h4``;
+export const UserEmail = styled.h4`
+  font-size: 14px;
+`;
 export const Button = styled.button`
   color: #001e3c;
   border-radius: 20px;
@@ -25,7 +29,6 @@ export const Button = styled.button`
   height: 30px;
   width: 120px;
   border-radius: 20px;
-  margin-top: 20px;
 
   &:hover {
     cursor: pointer;

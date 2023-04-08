@@ -9,15 +9,14 @@ import Button from "../Button";
 const Todo = ({ todo, deleteTodo, toggleIsCompleted, toggleIsUpdating }) => {
   return (
     <div>
-      <ContainerTodo
-        className={`${todo.isCompleted ? "classTodoIsCompleted" : ""}`}
-      >
+      <ContainerTodo>
         <TitleTodo
           className={`${todo.isCompleted ? "classTextIsCompleted" : ""}`}
           onClick={() => toggleIsCompleted(todo)}
         >
           {todo.text}
         </TitleTodo>
+
         <ButtonGroup>
           <FiEdit size={25} onClick={() => toggleIsUpdating(todo)} />
           <Button
