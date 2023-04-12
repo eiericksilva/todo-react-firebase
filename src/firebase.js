@@ -4,11 +4,11 @@ import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: "todo-firebase-36932.firebaseapp.com",
-  projectId: "todo-firebase-36932",
-  storageBucket: "todo-firebase-36932.appspot.com",
-  messagingSenderId: "202390877575",
-  appId: "1:202390877575:web:3fd3fc2f0a18b1a05a8f22",
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
