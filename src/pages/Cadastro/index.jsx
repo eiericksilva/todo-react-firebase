@@ -12,6 +12,7 @@ import {
   Title,
   Wrapper,
 } from "./Cadastro";
+import { Error } from "../Login/Login";
 
 const Cadastro = () => {
   const [email, setEmail] = useState("");
@@ -29,8 +30,16 @@ const Cadastro = () => {
       await createUser(email, password);
       navigate("/todoapp");
     } catch (e) {
-      setError(e.message);
-      console.log("erro", e.message);
+      switch (e.message) {
+        case "Firebase: Password should be at least 6 characters (auth/weak-password).":
+          setError("Senha deve ter no mínimo 6 caracteres");
+          break;
+        case "Firebase: Error (auth/email-already-in-use).":
+          setError("Email ja cadastrado.");
+          break;
+        default:
+          console.log(e);
+      }
     }
   };
   return (
@@ -63,6 +72,7 @@ const Cadastro = () => {
               />
               {/*  <Input type="password" placeholder="Confirme sua Senha" /> */}
             </ContainerInput>
+            {error ? <Error>{error}</Error> : ""}
             <Button type="submit"> Confirmar Cadastro</Button>
           </Form>
         </ColumnTwo>

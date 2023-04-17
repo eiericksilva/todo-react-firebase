@@ -11,6 +11,7 @@ import {
   Input,
   Title,
   Wrapper,
+  Error,
 } from "./Login";
 
 const Login = () => {
@@ -30,8 +31,19 @@ const Login = () => {
       await signIn(email, password);
       navigate("/todoapp");
     } catch (e) {
-      setError(e.message);
-      console.log(e.message);
+      switch (e.message) {
+        case "Firebase: Error (auth/user-not-found).":
+          setError("Usuário não encontrado");
+          break;
+        case "Firebase: Error (auth/invalid-email).":
+          setError("E-mail inválido");
+          break;
+        case "Firebase: Error (auth/wrong-password).":
+          setError("Senha Errada");
+          break;
+        default:
+          console.log(error);
+      }
     }
   };
   return (
@@ -63,6 +75,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </ContainerInput>
+            {error ? <Error>{error}</Error> : ""}
             <Button type="submit"> Entrar</Button>
           </Form>
         </ColumnTwo>

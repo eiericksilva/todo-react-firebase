@@ -98,6 +98,11 @@ export const Form = styled.form`
     width: 100%;
   }
 `;
+
+export const Error = styled.span`
+  color: red;
+  font-size: 12px;
+`;
 export const ContainerInput = styled.div`
   display: flex;
   flex-direction: column;
