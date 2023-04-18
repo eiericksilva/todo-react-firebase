@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import BackGroundImage from "../assets/blurry-gradient-haikei.png";
 
 export const GlobalStyle = createGlobalStyle`
     *{

@@ -23,19 +23,23 @@ const TodoApp = ({ createTodo }) => {
   const { user, logout } = UserAuth();
 
   useEffect(() => {
-    const q = query(
-      collection(db, "todos"),
-      orderBy("createdAt", "asc"),
-      where("user_uid", "==", user.uid)
-    );
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let todosArr = [];
-      querySnapshot.forEach((doc) => {
-        todosArr.push({ ...doc.data(), id: doc.id });
+    if (user && user.uid) {
+      const q = query(
+        collection(db, "todos"),
+        orderBy("createdAt", "asc"),
+        where("user_uid", "==", user.uid)
+      );
+
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        let todosArr = [];
+        querySnapshot.forEach((doc) => {
+          todosArr.push({ ...doc.data(), id: doc.id });
+        });
+        setTodos(todosArr);
       });
-      setTodos(todosArr);
-    });
-  }, []);
+      return () => unsubscribe();
+    }
+  }, [user]);
 
   const deleteTodo = async (id) => {
     await deleteDoc(doc(db, "todos", id));
