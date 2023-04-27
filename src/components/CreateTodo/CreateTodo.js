@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const Container = styled.form`
   display: flex;
   width: 80%;
-  height: 70px;
+  height: 90px;
   margin: 0 auto;
   align-items: center;
   justify-content: space-around;
   margin-bottom: 20px;
-  background-color: var(--blue-magenta);
+  background-color: #55696c;
 
   svg {
     cursor: pointer;
@@ -31,4 +31,6 @@ export const TextField = styled.input`
   height: 30px;
   width: 70%;
   padding: 10px;
+  border: none;
+  outline: none;
 `;

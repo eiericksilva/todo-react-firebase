@@ -48,10 +48,13 @@ export const ButtonGroup = styled.div`
 `;
 
 export const TitleTodo = styled.h1`
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 400;
   width: 70%;
 
   &.classTextIsCompleted {
     text-decoration: line-through;
+    text-decoration-color: #111;
+    color: #c0c0c0;
   }
 `;
