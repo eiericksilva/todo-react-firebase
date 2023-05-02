@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import PasswordField from "../../components/PasswordField";
 import {
   Button,
   ColumnOne,
@@ -68,8 +70,8 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <Input
-                type="password"
+              <PasswordField
+                className="password"
                 placeholder="Senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

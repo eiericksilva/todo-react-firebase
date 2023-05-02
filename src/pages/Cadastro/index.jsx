@@ -13,6 +13,7 @@ import {
   Wrapper,
 } from "./Cadastro";
 import { Error } from "../Login/Login";
+import PasswordField from "../../components/PasswordField";
 
 const Cadastro = () => {
   const [email, setEmail] = useState("");
@@ -64,13 +65,12 @@ const Cadastro = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
               />
-              <Input
-                type="password"
+              <PasswordField
+                className="password"
                 placeholder="Senha"
-                onChange={(e) => setPassword(e.target.value)}
                 value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
-              {/*  <Input type="password" placeholder="Confirme sua Senha" /> */}
             </ContainerInput>
             {error ? <Error>{error}</Error> : ""}
             <Button type="submit"> Confirmar Cadastro</Button>
