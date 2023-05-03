@@ -1,41 +1,43 @@
 import styled from "styled-components";
+import Banner from "../../assets/todobanner.png";
 
 export const Container = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  min-height: 350px;
   padding: 30px 20px;
   margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #90b7bc;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   color: var(--quantum);
 
-  @media (max-width: 770px) {
-    flex-direction: column;
-    gap: 5px;
-  }
-`;
+  background-image: url(${Banner});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
-export const Title = styled.h1`
-  font-size: 24px;
+  gap: 10px;
 `;
-
 export const UserEmail = styled.h4`
-  font-size: 14px;
+  font-size: 18px;
+  letter-spacing: 5px;
+  font-weight: 400;
 `;
 export const Button = styled.button`
-  color: #001e3c;
-  border-radius: 20px;
-  background-color: #f7d399;
+  color: white;
+  background-color: #55696c;
   height: 30px;
   width: 120px;
   border-radius: 20px;
+  border: none;
 
   &:hover {
     cursor: pointer;
 
-    background-color: #001e3c;
-    color: #f7d399;
+    background-color: white;
+    color: #55696c;
   }
 `;
